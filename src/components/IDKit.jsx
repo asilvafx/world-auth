@@ -4,8 +4,6 @@ import { IDKitWidget } from '@worldcoin/idkit'
 
 const IDKit = () => {
     const { t } = useTranslation();
-    const appId = process.env.APP_ID;
-    const actionId = process.env.ACTION_ID;
     const [verified, setVerified] = useState(false); // Define verified state
 
 
@@ -24,8 +22,7 @@ const IDKit = () => {
             }
 
             // If verification is successful, update the verified state
-            setVerified(true); // Set verified to true
-            console.log(res);
+            setVerified(true); // Set verified to true 
 
         } catch (error) {
             console.error("Error during verification:", error);
