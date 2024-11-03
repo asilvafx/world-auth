@@ -25,6 +25,8 @@ const IDKit = () => {
 
             // If verification is successful, update the verified state
             setVerified(true); // Set verified to true
+            console.log(res);
+            
         } catch (error) {
             console.error("Error during verification:", error);
             // Handle error (optional)
@@ -33,7 +35,7 @@ const IDKit = () => {
 
     const onSuccess = () => {
         // Redirect or perform any action after the modal is closed
-        window.location.href = "/success"; // Example redirect
+        console.log('Login successfully!')
     };
 
     return (
