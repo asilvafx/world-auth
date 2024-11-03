@@ -1,8 +1,9 @@
 import React, { Suspense, lazy, useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { HelmetProvider } from 'react-helmet-async'; 
+import { HelmetProvider } from 'react-helmet-async';
+import Home from './pages/Home';
+import Auth from './api/Auth';
 
-import Home from './pages/Home'; 
 const Cookies = lazy(() => import('./components/Cookies'));  
 
 const App = () => {    
@@ -14,8 +15,9 @@ const App = () => {
               <Cookies /> 
                 <div className="page-view">
                   <Routes>
-                    <Route path="/" element={<Home />} /> 
-                    <Route path="*" element={<Home />} />
+                    <Route path="/" element={<Home />} />
+                      <Route path="/api/auth" element={<Auth />} />
+                      <Route path="*" element={<Home />} />
                   </Routes>  
                 </div> 
             </Router>  
