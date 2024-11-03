@@ -6,32 +6,30 @@ const IDKit = () => {
     const { t } = useTranslation();
     const [verified, setVerified] = useState(false); // Define verified state
 
-
-    const handleVerify = async (proof) => {
-        try {
-            const res = await fetch("/api/auth", {
-                method: "POST",
+    const verifyProof = async (proof) => {
+        console.log('proof', proof);
+        const response = await fetch(
+            'https://developer.worldcoin.org/api/v1/verify/app_staging_129259332fd6f93d4fabaadcc5e4ff9d',
+            {
+                method: 'POST',
                 headers: {
-                    "Content-Type": "application/json",
+                    'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(proof),
-            });
-
-            if (!res.ok) {
-                throw new Error("Verification failed."); // IDKit will display the error message to the user in the modal
+                body: JSON.stringify({ ...proof, action: "test"}),
             }
-
-            // If verification is successful, update the verified state
-            setVerified(true); // Set verified to true 
-
-        } catch (error) {
-            console.error("Error during verification:", error);
-            // Handle error (optional)
+        );
+        if (response.ok) {
+            const { account } = await response.json();
+            return account;
+        } else {
+            const { code, detail } = await response.json();
+            throw new Error(`Error Code ${code}: ${detail}`);
         }
     };
 
     const onSuccess = () => {
         // Redirect or perform any action after the modal is closed
+        setVerified(true);
         console.log('Login successfully!')
     };
 
@@ -43,7 +41,7 @@ const IDKit = () => {
                     action="auth" // this is your action name from the Developer Portal
                     false
                     verification_level="device"
-                    handleVerify={handleVerify}
+                    handleVerify={verifyProof}
                     onSuccess={onSuccess}>
                     {({ open }) =>
                         <button
