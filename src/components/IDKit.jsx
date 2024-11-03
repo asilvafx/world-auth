@@ -4,8 +4,8 @@ import { IDKitWidget } from '@worldcoin/idkit'
 
 const IDKit = () => {
     const { t } = useTranslation();
-    const appId = import.meta.env.APP_ID;
-    const actionId = import.meta.env.ACTION_ID;
+    const appId = process.env.APP_ID;
+    const actionId = process.env.ACTION_ID;
     const [verified, setVerified] = useState(false); // Define verified state
 
     const handleVerify = async (proof) => {
