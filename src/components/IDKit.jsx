@@ -41,7 +41,7 @@ const IDKit = () => {
                 <IDKitWidget
                     app_id={appId} // obtained from the Developer Portal
                     action={actionId} // this is your action name from the Developer Portal
-                    signal="user_value" // any arbitrary value the user is committing to, e.g. a vote
+                    handleVerify={handleVerify} // callback when the proof is received
                     onSuccess={onSuccess}
                     verification_level="device" // minimum verification level accepted, defaults to "orb"
                 >
