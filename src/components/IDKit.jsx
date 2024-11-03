@@ -8,6 +8,7 @@ const IDKit = () => {
     const actionId = import.meta.env.ACTION_ID;
     const [verified, setVerified] = useState(false); // Define verified state
 
+
     const handleVerify = async (proof) => {
         try {
             const res = await fetch("/api/auth", {
@@ -39,12 +40,12 @@ const IDKit = () => {
         <>
             {!verified ? (
                 <IDKitWidget
-                    app_id={appId} // obtained from the Developer Portal
-                    action={actionId} // this is your action name from the Developer Portal
-                    handleVerify={handleVerify} // callback when the proof is received
-                    onSuccess={onSuccess}
-                    verification_level="device" // minimum verification level accepted, defaults to "orb"
-                >
+                    app_id="app_7c54dd9d0c581377f255db271d4773b6" // obtained from the Developer Portal
+                    action="auth" // this is your action name from the Developer Portal
+                    false
+                    verification_level="device"
+                    handleVerify={handleVerify}
+                    onSuccess={onSuccess}>
                     {({ open }) =>
                         <button
                                 className="px-4 py-2 rounded-lg"
