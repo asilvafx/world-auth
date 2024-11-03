@@ -1,0 +1,213 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --light-color: #FAF9F6;
+    --dark-color: #121212;
+    --primary-color: #6a9e1c; 
+    --error-color: #e5484d;
+    --success-color: #40ad22;
+    --muted-color: #959595;
+    --border-radius: 15px;
+  }
+  /* Default Light Theme */
+  :root {
+    --background-color: var(--light-color);
+    --alt-color: var(--dark-color);
+    --text-color: #1e1e1e; 
+    --secondary-color: #1d6954;
+    --card-color: #ecf2f2;
+    --border-color: #e8e8e8;
+  } 
+  /* Dark Theme */
+  [data-theme='dark'] {
+    --background-color: var(--dark-color);
+    --alt-color: var(--light-color);
+    --text-color: #e0e0e0;  
+    --secondary-color: #45654a;
+    --card-color: #161c18;
+    --border-color: #313131; 
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    @apply font-sans;
+  }
+  html, body {
+    scroll-behavior: smooth;
+    overscroll-behavior: none;
+  }
+  body { 
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0 auto;
+    max-width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  #loading {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+  } 
+  #root {
+    width: 100%;
+    overscroll-behavior: none;
+  }
+  *::selection {
+    background: var(--background-color);
+    color: var(--primary-color);
+  }
+  *::-moz-selection {
+    background: var(--background-color);
+    color: var(--primary-color);
+  }
+  *::-webkit-selection {
+    background: var(--background-color);
+    color: var(--primary-color);
+  }
+  ::placeholder {
+    color: var(--muted-color);
+    opacity: 1; 
+  }
+  
+  ::-ms-input-placeholder { /* Edge 12 -18 */
+    color: var(--muted-color);
+  }
+  input, select, textarea{
+    color: var(--background-color) !important;
+    background-color: var(--alt-color) !important;
+  }
+
+  textarea:focus, input:focus {
+    color: var(--background-color) !important;
+    background-color: var(--alt-color) !important;
+  } 
+  button, .btn, .button { 
+    background-color: var(--alt-color) !important; 
+    border-color: var(--border-color) !important;
+    color: var(--background-color);
+    fill: var(--background-color);
+  }
+  .btn-primary {
+    background-color: var(--primary-color) !important; 
+    color: var(--dark-color);
+  }
+  .btn-secondary {
+    background-color: var(--secondary-color) !important; 
+    color: var(--text-color);
+  }
+  .btn-alt {
+    background-color: var(--body-color) !important; 
+    color: var(--text-color);
+  }
+  .btn-danger { 
+    background-color: var(--error-color) !important; 
+    color: #FAF9F6;
+  }
+  .bg-color, .bg-body {
+    background-color: var(--background-color) !important;
+  } 
+  .bg-alt {
+    background-color: var(--alt-color) !important;
+  } 
+  .bg-primary {
+    background-color: var(--primary-color) !important;  
+  }
+  .bg-secondary {
+    background-color: var(--secondary-color) !important;  
+  }
+  .bg-card {
+    background-color: var(--card-color) !important;
+  }
+  .bg-muted {
+    background-color: var(--muted-color) !important;
+  }
+  .bg-transparent {
+    background: transparent !important;
+  }
+  .text-color {
+    color: var(--text-color) !important;
+  }
+  .text-alt {
+    color: var(--alt-color) !important;
+  }
+  .text-body {
+    color: var(--background-color) !important;
+  }
+  .text-primary {
+    color: var(--primary-color) !important;
+  }
+  .text-secondary {
+    color: var(--secondary-color) !important;
+  }
+  .text-dark { 
+    color: var(--dark-color) !important;
+  }
+  .text-light {
+    color: var(--light-color) !important; 
+  }
+  .text-muted {
+    color: var(--muted-color) !important;
+  }
+  .border {
+    border: 1px solid var(--border-color) !important; 
+  } 
+  .border-primary {
+    border-color: var(--primary-color) !important;  
+  }
+  .border-secondary {
+    border-color: var(--secondary-color) !important;  
+  } 
+  .border-alt {
+    border-color: var(--alt-color) !important;  
+  } 
+  .rounded {
+    border-radius: var(--border-radius) !important; 
+  }
+  .card {
+    background-color: var(--card-color) !important;
+    color: var(--text-color) !important;
+  }
+}
+
+.text-truncate { 
+  white-space: nowrap;
+}
+.text-truncate, .text-truncate-2,.text-truncate-3,.text-truncate-4,.text-truncate-5 { 
+  max-width: auto; 
+  overflow: hidden;
+  text-overflow: clip;
+  -webkit-box-orient: vertical;  
+  display: -webkit-box;
+}
+.text-truncate-2 {  
+  line-clamp: 2;
+  -webkit-line-clamp: 2;  
+}
+.text-truncate-3 {  
+  line-clamp: 3;
+  -webkit-line-clamp: 3;  
+}
+.text-truncate-4 {  
+  line-clamp: 4;
+  -webkit-line-clamp: 4;  
+}
+.text-truncate-5 {  
+  line-clamp: 5;
+  -webkit-line-clamp: 5;  
+} 
+[disabled="true"], [aria-disabled="true"] { 
+  opacity: 0.7;
+  pointer-events: none;
+  cursor: default;
+  user-select: none;
+}
