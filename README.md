@@ -17,3 +17,7 @@ A lightweight, production-ready boilerplate for React projects built on Vite. Th
    ```bash
    git clone https://github.com/asilvafx/vite-react-boilerplate.git
    cd vite-react-boilerplate
+
+2.  **Backend Setup**
+    ```bash
+	Move server.php file to your backend ftp server.
