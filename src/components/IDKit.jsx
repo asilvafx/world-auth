@@ -9,7 +9,7 @@ const IDKit = () => {
     const handleVerify = async (proof) => {
         try {
             // Call your API route to verify the proof
-            const res = await fetch('https://developer.worldcoin.org/api/v2/verify/app_7c54dd9d0c581377f255db271d4773b6', { // Update the URL to your backend server
+            const res = await fetch('https://world-auth.dreamhosters.com/', { // Update the URL to your backend server
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
