@@ -8,14 +8,19 @@ const IDKit = () => {
 
     const handleVerify = async (proof) => {
         console.log(proof);
-        try { 
+        try {
+            const modifiedProof = {
+                ...proof,
+                action: 'auth' // action name you want to use
+            };
+
             // Call your API route to verify the proof
             const res = await fetch('https://world-auth.dreamhosters.com/', { // Update the URL to your backend server
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(proof),
+                body: JSON.stringify(modifiedProof),
             });
 
             if (!res.ok) {
