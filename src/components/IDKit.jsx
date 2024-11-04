@@ -31,7 +31,7 @@ const IDKit = () => {
             // If verification is successful, update the verified state
             setVerified(true);
             const response = await res.json();
-            const data = JSON.parse(response);
+            const data = JSON.parse(response.data);
             console.log(data);
             
         } catch (error) {
