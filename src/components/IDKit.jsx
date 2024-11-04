@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { IDKitWidget } from '@worldcoin/idkit'
+import { IDKitWidget, VerificationLevel } from '@worldcoin/idkit'
 
 const IDKit = () => {
     const { t } = useTranslation();
@@ -21,12 +21,10 @@ const IDKit = () => {
                 throw new Error('Verification failed.');
             }
 
-            const data = await res.json();
             // If verification is successful, update the verified state
-            if (data.verified) {
-                setVerified(true);
-                console.log('Successfully authenticated!');
-            }
+            setVerified(true);
+            // const data = await res.json();
+            
         } catch (error) {
             console.error('Error during verification:', error);
         }
