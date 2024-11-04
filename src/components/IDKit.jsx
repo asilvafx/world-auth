@@ -9,7 +9,7 @@ const IDKit = () => {
     const handleVerify = async (proof) => {
         try {
             // Call your API route to verify the proof
-            const res = await fetch('https://world-auth.dreamhosters.com/server.php', { // Update the URL to your backend server
+            const res = await fetch('https://world-auth.dreamhosters.com/', { // Update the URL to your backend server
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
