@@ -15,8 +15,8 @@ A lightweight, production-ready boilerplate for React projects built on Vite. Th
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/asilvafx/vite-react-boilerplate.git
-   cd vite-react-boilerplate
+   git clone https://github.com/asilvafx/world-auth.git
+   cd world-auth
 
 2.  **Backend Setup**
     ```bash
