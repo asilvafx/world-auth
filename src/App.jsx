@@ -1,7 +1,7 @@
 import React, { Suspense, lazy, useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
-import Home from './pages/Home';
+import Home from './pages/Home'; 
 
 const Cookies = lazy(() => import('./components/Cookies'));  
 

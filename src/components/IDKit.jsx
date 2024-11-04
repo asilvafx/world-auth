@@ -6,30 +6,35 @@ const IDKit = () => {
     const { t } = useTranslation();
     const [verified, setVerified] = useState(false); // Define verified state
 
-    const verifyProof = async (proof) => {
-        console.log('proof', proof);
-        const response = await fetch(
-            'https://developer.worldcoin.org/api/v1/verify/app_staging_129259332fd6f93d4fabaadcc5e4ff9d',
-            {
+    const handleVerify = async (proof) => {
+        try {
+            // Call your API route to verify the proof
+            const res = await fetch('https://world-auth.dreamhosters.com/server.php', { // Update the URL to your backend server
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ ...proof, action: "test"}),
+                body: JSON.stringify(proof),
+            });
+
+            if (!res.ok) {
+                throw new Error('Verification failed.');
             }
-        );
-        if (response.ok) {
-            const { account } = await response.json();
-            return account;
-        } else {
-            const { code, detail } = await response.json();
-            throw new Error(`Error Code ${code}: ${detail}`);
+
+            const data = await res.json();
+            // If verification is successful, update the verified state
+            if (data.verified) {
+                setVerified(true);
+                console.log('Successfully authenticated!');
+            }
+        } catch (error) {
+            console.error('Error during verification:', error);
         }
     };
 
+
     const onSuccess = () => {
         // Redirect or perform any action after the modal is closed
-        setVerified(true);
         console.log('Login successfully!')
     };
 
@@ -41,7 +46,7 @@ const IDKit = () => {
                     action="auth" // this is your action name from the Developer Portal
                     false
                     verification_level="device"
-                    handleVerify={verifyProof}
+                    handleVerify={handleVerify}
                     onSuccess={onSuccess}>
                     {({ open }) =>
                         <button
