@@ -42,7 +42,7 @@ const IDKit = () => {
         <>
             {!verified ? (
                 <IDKitWidget
-                    app_id="app_7c54dd9d0c581377f255db271d4773b6" // obtained from the Developer Portal
+                    app_id="app_22f503b7107497ff51011caa16433fd2" // obtained from the Developer Portal
                     action="auth" // this is your action name from the Developer Portal
                     false
                     verification_level="device"
