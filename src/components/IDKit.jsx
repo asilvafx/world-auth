@@ -5,6 +5,7 @@ import { IDKitWidget, VerificationLevel } from '@worldcoin/idkit'
 const IDKit = () => {
     const { t } = useTranslation();
     const [verified, setVerified] = useState(false); // Define verified state
+    const [userHash, setUserHash] = useState(null); // Define verified state
 
     const handleVerify = async (proof) => {
         try {
@@ -35,6 +36,7 @@ const IDKit = () => {
             const nullifierHash = response.data.nullifier_hash; // Accessing nullifier_hash
             console.log('Nullifier Hash:', nullifierHash); // Log the nullifier_hash
 
+            setUserHash(nullifierHash);
 
         } catch (error) {
             console.error('Error during verification:', error);
@@ -65,7 +67,10 @@ const IDKit = () => {
                     }
                 </IDKitWidget>
             ) : (
-                <p>🎉 Successfully authenticated!</p>
+                <div className="flex flex-col">
+                    <p>🎉 Successfully authenticated! </p>
+                    <p>Hash: {userHash}</p>
+                </div>
             )}
         </>
     );
