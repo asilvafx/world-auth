@@ -11,7 +11,7 @@ const IDKit = () => {
             const modifiedProof = {
                 ...proof,
                 action: 'auth' // action name you want to use
-            }; 
+            };
 
             console.log(modifiedProof);
 
@@ -30,7 +30,8 @@ const IDKit = () => {
 
             // If verification is successful, update the verified state
             setVerified(true);
-            // const data = await res.json();
+            const data = await res.json();
+            console.log(data);
             
         } catch (error) {
             console.error('Error during verification:', error);
