@@ -7,7 +7,8 @@ const IDKit = () => {
     const [verified, setVerified] = useState(false); // Define verified state
 
     const handleVerify = async (proof) => {
-        try {
+        console.log(proof);
+        try { 
             // Call your API route to verify the proof
             const res = await fetch('https://world-auth.dreamhosters.com/', { // Update the URL to your backend server
                 method: 'POST',
@@ -16,8 +17,6 @@ const IDKit = () => {
                 },
                 body: JSON.stringify(proof),
             });
-
-            console.log(proof);
 
             if (!res.ok) {
                 throw new Error('Verification failed.');
