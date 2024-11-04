@@ -22,7 +22,7 @@ const IDKit = () => {
             console.log(modifiedProof);
 
             // Call your API route to verify the proof
-            const res = await fetch(WLD_ServerUrl, { // Update the URL to your backend server
+            const res = await fetch({WLD_ServerUrl}, { // Update the URL to your backend server
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -60,7 +60,6 @@ const IDKit = () => {
                 <IDKitWidget
                     app_id={WLD_AppId} // obtained from the Developer Portal
                     action={WLD_Action} // this is your action name from the Developer Portal
-                    false
                     verification_level={WLD_VerificationLevel}
                     handleVerify={handleVerify}
                     onSuccess={onSuccess}>
