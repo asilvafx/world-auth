@@ -17,7 +17,7 @@ const IDKit = () => {
                 body: JSON.stringify(proof),
             });
 
-            console.log(res);
+            console.log(proof);
 
             if (!res.ok) {
                 throw new Error('Verification failed.');
