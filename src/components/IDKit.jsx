@@ -7,22 +7,23 @@ const IDKit = () => {
     const [verified, setVerified] = useState(false); // Define verified state
     const [userHash, setUserHash] = useState(null); // Define verified state
 
-    const WLD_Action = "auth";
-    const WLD_AppId = "app_22f503b7107497ff51011caa16433fd2";
-    const WLD_VerificationLevel = "device";
-    const WLD_ServerUrl = "https://world-auth.dreamhosters.com/";
+    const WLD_Action = "auth"; // Action name
+    const WLD_AppId = "app_22f503b7107497ff51011caa16433fd2"; // App ID from Developer Portal
+    const WLD_VerificationLevel = "device"; // Verification level
+    const WLD_ServerUrl = "https://world-auth.dreamhosters.com/"; // Server URL
+
 
     const handleVerify = async (proof) => {
         try {
             const modifiedProof = {
                 ...proof,
-                action: {WLD_Action} // action name you want to use
+                action: WLD_Action // action name you want to use
             };
 
             console.log(modifiedProof);
 
             // Call your API route to verify the proof
-            const res = await fetch({WLD_ServerUrl}, { // Update the URL to your backend server
+            const res = await fetch(WLD_ServerUrl, { // Update the URL to your backend server
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -60,7 +61,7 @@ const IDKit = () => {
                 <IDKitWidget
                     app_id={WLD_AppId} // obtained from the Developer Portal
                     action={WLD_Action} // this is your action name from the Developer Portal
-                    verification_level={WLD_VerificationLevel}
+                    verification_level={WLD_VerificationLevel}  // Use the verification level
                     handleVerify={handleVerify}
                     onSuccess={onSuccess}>
                     {({ open }) =>
