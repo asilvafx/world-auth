@@ -7,12 +7,13 @@ const IDKit = () => {
     const [verified, setVerified] = useState(false); // Define verified state
 
     const handleVerify = async (proof) => {
-        console.log(proof);
         try {
             const modifiedProof = {
                 ...proof,
                 action: 'auth' // action name you want to use
-            };
+            }; 
+
+            console.log(modifiedProof);
 
             // Call your API route to verify the proof
             const res = await fetch('https://world-auth.dreamhosters.com/', { // Update the URL to your backend server
