@@ -31,9 +31,11 @@ const IDKit = () => {
             // If verification is successful, update the verified state
             setVerified(true);
             const response = await res.json();
-            const data = response.data;
-            console.log(data);
-            
+
+            const nullifierHash = response.data.nullifier_hash; // Accessing nullifier_hash
+            console.log('Nullifier Hash:', nullifierHash); // Log the nullifier_hash
+
+
         } catch (error) {
             console.error('Error during verification:', error);
         }
