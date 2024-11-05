@@ -1,6 +1,6 @@
 # Worldcoin Auth
 
-A lightweight, production-ready boilerplate for React projects built on Vite. This setup includes essential dependencies for modern web development, such as Axios for API requests, i18n for internationalization, and React Router for route management. Includes Tailwind CSS for styling, ESLint for code quality, and support for environment variables.
+Simple "Sign in with Worldcoin" React project built on Vite. This setup includes essential dependencies for modern web development, such as Axios for API requests, i18n for internationalization, and React Router for route management. Includes Tailwind CSS for styling, ESLint for code quality, and support for environment variables.
 
 ## Features
 - **IDKit** - Powered by World ID
