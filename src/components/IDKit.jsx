@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { IDKitWidget, VerificationLevel } from '@worldcoin/idkit'
+import { IDKitWidget, VerificationLevel } from '@worldcoin/idkit';
 
 const IDKit = () => {
     const { t } = useTranslation();
