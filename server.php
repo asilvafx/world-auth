@@ -4,7 +4,7 @@
 $apiUrl = "https://developer.worldcoin.org/api/v2/verify/";
 
 // Set APP ID (From Developers Portal API)
-$appId = "app_22f503b7107497ff51011caa16433fd2";
+$appId = isset($_GET['appId']) ? htmlspecialchars_decode($_GET['appId']) : "your_app_id";
 
 // Set CORS headers
 header('Access-Control-Allow-Origin: *'); // Replace with your frontend URL
@@ -12,11 +12,19 @@ header('Access-Control-Allow-Methods: GET, POST, OPTIONS'); // Allow GET, POST a
 header('Access-Control-Allow-Headers: Content-Type'); // Allow Content-Type header
 header('Content-Type: application/json'); // Set the content type to application/json
 
+
+if(!$appId) {
+    http_response_code(204); // No Content
+    exit;
+} else {
+    $appId = htmlspecialchars_decode($appId);
+}
+
 // Handle preflight OPTIONS request
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     http_response_code(204); // No Content
     exit;
-} 
+}
 
 // Function to verify proof
 function verifyProof($proof) {
